@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="/static/logo.png">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+
+    <title id="title">60Days</title>
+</head>
+
+<body id="body">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Search by day/date</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <div id="wait" class="d-none">
+                        <div class="d-flex justify-content-center">
+                            <h6>Loading…</h6>
+                        </div>
+                    </div>
+                    <div id="show">
+                        <div class="d-flex flex-row">
+                            <div class=" mx-auto">
+                                <input type="radio" id="day" name="dayordate" value="day" required>
+                                <label for="day">
+                              By Day
+                            </label>
+                            </div>
+                            <div class="mx-auto">
+                                <input type="radio" id="date" name="dayordate" value="date">
+                                <label for="date">
+                              By Date
+                            </label>
+                            </div>
+                        </div>
+                        <div class=" d-none" id="Day">
+                            <label>Available Sessions </label>
+                            <select class="form-control form-select selectoption" id="days"></select>
+
+                        </div>
+                        <div class=" d-none" id="Date">
+                            <label>Available Sessions </label>
+                            <select class="form-control form-select selectoption" id="dates"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-custom navbar-mainbg">
+        <object class="navbar-brand navbar-logo text-light p-1 ml-2" type="image/svg+xml" data="/static/logo.svg" width="60" height="60"></object>
+        <div class="d-flex flex-row">
+            <button class="btn d-none" type="button" id="search" data-toggle="modal" data-target="#exampleModalCenter">
+                <svg class="svg-icon search-icon" width="40" height="40" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 20" fill="white">
+                    <g class="search-path" fill="none" stroke="white">
+                        <path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"/>
+                        <circle cx="8" cy="8" r="7"/>
+                    </g>
+                </svg>
+            </button>
+            <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span>
+                    <svg viewBox="0 0 100 80" width="40" height="40" fill="white" >
+                        <rect width="100" height="10" y="5" rx="8" ></rect>
+                        <rect y="35" width="100" height="10" rx="8"></rect>
+                        <rect y="65" width="100" height="10" rx="8"></rect>
+                    </svg>
+                </span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <div class="hori-selector">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <li class="nav-item active" id="Home">
+                    <a class="nav-link text-uppercase" href="javascript:void(0);">home</a>
+                </li>
+                {% for i in coll if i!="attendance" and i!="contributer" %}
+                <li class="nav-item">
+                    <a class="nav-link text-uppercase" href="javascript:void(0);">{{i}}</a>
+                </li>
+                {% endfor %}
+                <li class="nav-item">
+                    <a class="nav-link text-uppercase" href="javascript:void(0);">attendance</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="d-flex flex-wrap-reverse justify-content-center">
+        <div class="col-md-3 cw mb-5" style="width:100%;min-width: 350px;">
+            <div class="d-flex flex-row flex-wrap justify-content-around w-100">
+                <div class="d-flex flex-column align-items-center justify-content-center mt-2" id="dev">
+                    <img src="/static/monil.png" style="border:solid #5161ce 2px;" class="rounded-circle" alt="Monil Goyal" width="100" height="100">
+                    <h5 class="text-center mt-1">Monil Goyal</h5>
+                    <p class="text-center" style="margin-top:-10px;">Developer</p>
+
+                    <div>
+                        <a href="https://www.linkedin.com/in/monilgoyal/" target="_blank">Linkedin	</a>&nbsp;
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=monilgoyal10@gmail.com" target="_blank">Gmail</a>
+                    </div>
+                </div>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdRNs1QQnPjpd1u4vgp5YQcP0YqxSaOnxIf-jWk4RQKuyc8cQ/viewform?embedded=true" class="myform mt-2" width="350" height="354" scrolling="no" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+        <div class="col-md-9 cw w-100">
+            <div id="mycontent" class="p-3 d-flex flex-column align-items-center  ">
+                <div id="home" class="w-100">
+                    <div class="d-flex flex-column flex-wrap justify-content-around align-items-center " style="height: 620px;">
+                        <div class="d-flex flex-column align-items-center justify-content-center mt-2 h-25 w-50 feature">
+                            <object type="image/svg+xml" data="/static/calender.svg" width="50" height="50"></object>
+                            <h5 class="text-center mt-1">Date and Day</h5>
+                            <p class="text-center">Search Notes By Date/Day</p>
+                        </div>
+                        <div class="d-flex flex-column align-items-center justify-content-center mt-2 h-25 w-50 feature">
+                            <object type="image/svg+xml" data="/static/attendance.svg" width="50" height="50"></object>
+                            <h5 class="text-center mt-1">Attendance Links</h5>
+                            <p class="text-center">Find All Attendance Links</p>
+                        </div>
+                        <div class="d-flex flex-column align-items-center justify-content-center mt-2 h-25 w-50 feature">
+                            <object type="image/svg+xml" data="/static/svgpdf.svg" width="50" height="50"></object>
+                            <h5 class="text-center mt-1">PDF Notes</h5>
+                            <p class="text-center">Request Notes In PDF Format</p>
+                        </div>
+                    </div>
+                </div>
+                {%for i in coll if i!="contributer" %} {% for j in db[i].find({}).sort([("day", -1)]).limit(1) %}
+                <iframe id="{{i}}" class="miro d-none" src="{{j['url']}}" frameBorder="0" allowFullScreen>Wait Loading…</iframe>{% endfor %} {% endfor %}
+                <div class="d-flex align-items-center justify-content-center mt-3">
+                    <h6>WEAR&nbsp</h6><object type="image/svg+xml" data="/static/wearmask.svg" width="50" height="50"></object>
+                    <h6>MASK</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-row flex-wrap align-items-center justify-content-around">
+        {%for i in db['contributer'].find() %}
+        <div class="d-flex flex-column align-items-center justify-content-center mt-2 contributer">
+            <img src="{{i['image_url']}}" style="border:solid #5161ce 2px;" class="rounded-circle" alt="{{i['name']}}" width="100" height="100">
+            <h5 class="text-center mt-1">{{i['name']}}</h5>
+            <p class="text-center" style="margin-top:-10px;">{{i['role']}}</p>
+            <a href="{{i['contact_url']}}" target="_blank">{{i['contact_medium']}}</a>
+        </div>
+        {% endfor %}
+        <div class="d-flex flex-column align-items-center justify-content-center mt-2 contributer">
+            <img src="/static/unknown.png" style="border:solid #5161ce 2px;" class="rounded-circle" alt="contributer" width="100" height="100">
+            <h5 class="text-center mt-1">Contributer</h5>
+            <p class="text-center" style="margin-top:-10px;">Contact to contribute</p>
+            <a> Your Contact Plateform </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small mt-2" style="background-color: #5161ce;">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 text-white"><a href="https://www.linkedin.com/in/monilgoyal/" class="text-white" target="_blank">Contact On Linkedin To Contribute</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+    <script type="text/javascript" src='/static/js/jquery.js'></script>
+    <script type="text/javascript" src='/static/js/ajax.js'></script>
+    <script type="text/javascript" src='/static/js/index.js'></script>
+    <script type="text/javascript" src='/static/js/popper.js'></script>
+    <script type="text/javascript" src='/static/js/bootstrap.js'></script>
+</body>
+
+</html>
